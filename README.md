@@ -15,4 +15,4 @@ If you're interested in following my coding journey, feel free to join me on thi
 
 #100DaysOfCode #CodeChallenge #CodingJourney #ContinuousLearning #PersonalGrowth #NeverStopLearning
 
-[Add any relevant hashtags or mentions of organizations, programming languages, or technologies you plan to focus on during the challenge.]
+
