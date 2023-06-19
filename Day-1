@@ -1,0 +1,46 @@
+Day-1 of 100
+
+GFG : Sum Pair closest to X
+Question Link:https://practice.geeksforgeeks.org/problems/pair-in-array-whose-sum-is-closest-to-x1124/1?page=1&curated[]=2&sortBy=submissions
+
+Solution Apporach:
+ Two-Pointer Method 
+ 
+ 
+ 
+Solution:
+
+class Solution{   
+public:
+    vector<int> sumClosest(vector<int>arr, int x)
+    {
+        // code here
+        int closeto =0;
+        int sum=0;
+        long compare = INT_MAX;
+        vector<int>ans;
+        int l=0, r = arr.size() - 1;
+        while(l<r)
+        {
+           sum = arr[l]+arr[r];
+           closeto = abs(sum - x);
+           //cout<<"closeto   :"<<closeto<<" ";
+           //cout<<compare<<endl;
+          // compare =min( closeto , compare);
+           if(closeto < compare){
+               ans.erase(ans.begin(),ans.end());
+               compare = closeto;
+               ans.push_back(arr[l]);
+               ans.push_back(arr[r]);
+           }
+           
+           if(sum > x){
+               sum -= arr[r--];
+           }
+           else{
+               sum -= arr[l++];
+           }
+        }
+        return ans;
+    }
+};
