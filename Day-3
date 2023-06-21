@@ -1,0 +1,50 @@
+Day: 3 / 100
+
+GFG Problem Name :Find duplicates in an array
+GFG Link :https://practice.geeksforgeeks.org/problems/find-duplicates-in-an-array/1?page=1&difficulty[]=0&curated[]=2&sortBy=submissions
+
+
+Time Complexity: O(N*logN);
+Space Complexity : O(N)
+
+Apporach:
+Using Unordered_map and Copying the elements and storing count of the element .
+Using Find funtion to update the count  if element is present or not.
+After copying 
+Iterating the map of map->second .if map->second is greater then 1 
+pushback map->first into vector
+and sorting the vector, because the unordered map is not sorted.
+
+
+
+class Solution{
+public:
+    vector<int> duplicates(int arr[], int n) {
+        // code here
+        vector<int>ans;
+        unordered_map<int,int> mp;
+        
+        for(int i=0;i<n;i++)
+        {
+            auto it = mp.find(arr[i]);
+            
+            if(it != mp.end()){
+                it->second++;
+            }
+            else{
+            mp.insert({arr[i],0});
+            }
+        }
+        for(auto it = mp.begin(); it != mp.end();++it){
+            if((it->second) >0){
+                ans.push_back(it->first);
+            }
+        }
+        if(ans.empty()) {
+            ans.push_back(-1);
+            return ans;
+        }
+        sort(ans.begin(),ans.end());
+        return ans;
+    }
+    };
