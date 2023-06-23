@@ -1,0 +1,47 @@
+Day : 5 / 100 #100daysofcodechallenge 
+
+Problem Name(GFG) :Two Repeated Elements
+
+Problem Link: https://practice.geeksforgeeks.org/problems/two-repeated-elements-1587115621/1
+
+
+
+Approach : Using STL container Unordered_map.
+creating a vector for storing elements .
+if element is found twice will push back to vector .we will check it by using 
+mp.Find( ) inbulit function of Unorderd_map which takes O(1). else insert into map.
+
+
+//User function template for C++
+
+class Solution {
+  public:
+    //Function to find two repeated elements.
+    vector<int> twoRepeated (int arr[], int N) {
+        // Your code here
+        
+        vector<int>ans;
+        unordered_map<int,int> mp;
+        for(int i=0; i<N+2; i++){
+
+            auto it =mp.find(arr[i]);
+
+            if( it != mp.end()){
+                ans.push_back(arr[i]);
+            }else{
+                mp.insert({arr[i],0});
+            }
+        }
+        
+      /*  for(auto it = mp.begin();it != mp.end();it++){
+            cout<<it->first<<" ";
+        }*/
+        //cout<<endl;
+        return ans;
+    }
+};
+
+
+ Time Complexity : O(N)
+
+Space Complexity : O(N)  //Because created an unorderedmap  
