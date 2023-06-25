@@ -1,0 +1,34 @@
+Day :  7 / 100   #100daysofcodechallenge 
+
+Problem Name : Number of Arithmetic Triplets (LC->2367)
+Problem Link : https://leetcode.com/problems/number-of-arithmetic-triplets/description/
+
+Approach: Iterating the arrays Multiple times.and checking the given Conditions
+
+Solution:
+
+class Solution {
+public:
+    int arithmeticTriplets(vector<int>& nums, int diff) {
+
+      int count=0;
+
+       for(int i=0;i<nums.size()-2;i++){
+             for(int j=i+1;j<nums.size()-1;j++){
+                  for(int k=j+1;k<nums.size();k++){
+                      
+                    //  if(i<j && j<k && i<k){
+                          if(nums[j] - nums[i] == diff  && nums[k] - nums[j] == diff) count++;
+                      }   
+             }           
+       } 
+    return count;
+    }
+};
+
+Time Complexity : O(N*3)
+Space Complexity : O(1)
+
+
+
+Solution Link :
