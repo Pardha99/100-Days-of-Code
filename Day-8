@@ -1,0 +1,66 @@
+Day: 8 / 100
+#100daysofcode
+
+Today solved two questions
+
+1. Defanging an IP Address (LC->1108)
+2.Shuffle String (LC->1528)
+
+Problem Name(LC->1108): Defanging an IP Address
+Problem Link : https://leetcode.com/problems/defanging-an-ip-address/
+
+Approach: Iterating the string and when found '.' add the string [.] or else just add the character. 
+
+Solution:
+class Solution {
+public:
+    string defangIPaddr(string address) {
+      string ans;
+      string v = "[.]";
+      int size =  address.size();
+      for(int i=0;i<size;i++){
+          if(address[i] == '.'){
+              ans = ans+v;
+          }
+          else{
+              ans = ans+address[i];
+          }
+      }  
+      cout<<ans<<endl;
+      return ans;
+
+    }
+};
+Time Complexity: O(N)
+Space Complexity: O(1)
+--------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+Problem Name: Shuffle String
+Problem Link:https://leetcode.com/problems/shuffle-string/
+
+Approach: Iterating the string and adding according to the indices asked.
+
+Solution:
+class Solution {
+public:
+    string restoreString(string s, vector<int>& indices) {
+      int n = indices.size();
+      char ans[n];
+      for(int i =0 ;i<n;i++){
+          char al = s[i];
+          ans[indices[i]] = al;
+      }
+      string nas;
+      for(int i=0;i<n;i++){
+          nas += ans[i];
+      }
+      return nas;
+
+    }
+};
+
+Time Complexity:  O(N)
+Space Complexity: O(N) //created an extra char array for copying the characters in order.
+
+
+
