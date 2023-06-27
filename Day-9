@@ -1,0 +1,67 @@
+Day: 9 / 100    #100daysofcodechallenge 
+
+
+Problem Name : Decode the Message (LC-> 2325)
+Problem Link: https://leetcode.com/problems/decode-the-message/description/
+
+
+✨Approach :
+→Creating the 26 alphabets array. 
+→Created an unordered_map for traversing the string and memorizing(created a separate array let's say it as keys order for stroing the characters that present) the character if occured more times skip it a .
+→ Now take the message string and traverse it and take the index of that character in the keysorder array  and take character from aplhabet array of this index
+
+Solution:
+
+class Solution {
+public:
+    string decodeMessage(string key, string message) {
+        
+         
+    map< string,int> ans;
+     char alpha[] = "abcdefghijklmnopqrstuvwxyz";
+    char save[26];
+    int l = 0;
+     for(int i=0;i<key.size();i++){
+
+         string bb = to_string(key[i]);
+         auto it = ans.find(bb);
+         
+         if(it != ans.end()){
+             it->second++;
+         }
+         else{
+            ans.insert({to_string(key[i]),0});
+            if(key[i] != ' '){
+            save[l++] = key[i];}
+         }
+     }
+    string decoded;
+    string sp = " ";
+   for(int i=0;i<message.size();i++){
+      int k; 
+       if(message[i] == ' '){
+           decoded += sp;
+       }
+       else{
+       for(int j=0;j<26;j++){
+           if(message[i] == save[j]){
+               int k = j;
+               decoded += alpha[k];
+               cout<<k<<" ";
+               break;
+           }
+       }
+      // decoded += alpha[k];
+   }
+}
+
+return decoded;
+
+    }
+};
+
+
+
+Time Complexity : O(N*2)
+
+Space Complexity: O(N)  //Created an Unordered_map
