@@ -1,0 +1,68 @@
+Day: 10 / 100 #100daysofcode
+
+
+Today solved Two problems:
+1. Number of 1Bits (LC-->191)
+2. Create Target Array in the Given Order (LC-->1389)
+
+
+1st Problem : Number of 1Bits
+Problem Link:
+
+💪💪STL (Standard Template Library of C++)
+
+Thanks to STL able to solve 2 problems very easily
+
+
+
+Today solved Two problems:
+
+1. Number of 1Bits (LC-->191)
+
+2. Create Target Array in the Given Order (LC-->1389)
+
+
+1st Problem : Number of 1Bits
+Problem Link: https://leetcode.com/problems/number-of-1-bits/
+
+Approach: Using the STL inbulit function Count() able to do in easily by just Using it.
+
+Solution: 
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+      bitset<32>v(n);
+      return v.count();
+    }
+};
+
+Time Complexity  :  O(N) 
+Space Complexity : O(1)
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+2nd Problem : Create Target Array in the Given Order (LC-->1389)
+Problem Link : https://leetcode.com/problems/create-target-array-in-the-given-order/
+
+Approach : Using the STL inbulit function insert( ) able to do in easily by just 
+Using it.
+
+Solution:
+class Solution {
+public:
+    vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
+
+
+     vector<int> ans;
+     for(int i=0;i<index.size();i++){
+
+         ans.insert(ans.begin()+index[i],nums[i]);
+     }
+    return ans;
+  }
+};
+
+
+Time Complexity: O(N*2)
+Space Complexity: O(1)
+
+
