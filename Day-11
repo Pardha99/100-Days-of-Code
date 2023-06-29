@@ -1,0 +1,43 @@
+Day: 11 / 100  #100daysofcode
+
+
+Problem Name : Matrix Diagonal Sum (LC-->1572)
+Problem Link : https://leetcode.com/problems/matrix-diagonal-sum/description/
+
+Appraoh : Iterating the matrix and taking index i==j and exact opposite index of them and suming them
+and you should also check if its odd*odd matrix or even*even matrix
+
+Solution:
+class Solution {
+public:
+    int diagonalSum(vector<vector<int>>& mat) {
+        
+        int sum = 0;
+        int rows = mat.size();
+        int col = mat[0].size();
+        for(int i = 0; i < rows;i++){
+            for(int j=0;j<col;j++){
+
+                if(i == j){
+                    sum += mat[i][j];
+                    int r = abs(col-j);
+                    sum += mat[i][r-1];
+                }
+            }
+        }
+        if(rows%2 == 0 ){
+            return sum;
+        }
+        else{
+            int m = rows/2;
+        int n = col/2;
+        sum = sum - mat[m][n];
+        return sum;
+        }
+    
+    }
+};
+
+
+Time Complexity : O(rows x colums)
+Space Complexity : O(1)
