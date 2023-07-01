@@ -1,0 +1,14 @@
+Day - 13
+
+Problem Name -> Search in a 2D Matrix || 
+Problem Link -> https://leetcode.com/problems/search-a-2d-matrix-ii/description/?envType=study-plan-v2&envId=top-100-liked
+
+
+Approach : Binary Search + Linear Search
+
+Solution :
+
+
+
+Time Complexity:  O(N)*O(log(N))
+Space Complexity : O(1)
