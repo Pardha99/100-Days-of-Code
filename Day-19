@@ -1,0 +1,28 @@
+Day : 19 / 100 
+#100daysofcode
+
+ProblemName: Missing Number
+ProblemLink:https://leetcode.com/problems/missing-number/
+
+Approach:
+1.using sort function and iterating with i. if(i != nums[i]) return i;
+2.maths formula sum =(n*n+1)/2 and subtracting the nums[i] and will return the sum 
+
+Solution:class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+
+       int m = nums.size();
+       int max2 = (m*(m+1))/2;
+
+       for(int i=0;i<m;i++){
+           max2 -= nums[i];
+       }
+       return max2;
+
+    }
+};
+
+
+TimeComplexity:O(N)
+SpaceComplexity:O(1)
