@@ -1,0 +1,23 @@
+Day : 20 / 100
+#100daysofcode
+
+ProblemName:  Find the Duplicate Number
+ProblemLink: https://leetcode.com/problems/find-the-duplicate-number/
+
+
+testcase paseed : 11/59
+Appraoch: sum of n terms - for loop of each element
+
+Solution:class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+     int l = nums.size() -1;
+     int sum = (l*(l+1))/2;
+     for(int i=0;i<l+1;i++){
+         sum -= nums[i];
+     }    
+
+
+     return -1*sum;
+    }
+};
