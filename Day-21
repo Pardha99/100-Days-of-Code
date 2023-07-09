@@ -1,0 +1,41 @@
+Day-21 / 100
+#100daysofcode
+
+ProblemName: Self Dividing Numbers
+ProblemLink:https://leetcode.com/problems/self-dividing-numbers/
+
+
+class Solution {
+public:
+    vector<int> selfDividingNumbers(int left, int right) {
+
+    vector<int>ans;
+    
+    for(int i = left; i <= right; i++){
+
+      if(i%10 != 0){
+        int num = i;
+        string n = to_string(i);
+        int l  = n.size();
+        int count = 0;
+        while(num > 0){
+
+         int  r = num %10;
+         if(r!=0){
+            if( i % r == 0){
+                count++;
+            }
+         }
+             num = num/10;
+        }
+        if(l == count){
+            ans.push_back(i);
+        }
+      }
+    }
+    return ans;
+    }
+};
+
+TimeComplexity: O(N)
+SpaceComplexity: O(number of self divinding Numbers) // only vector for stroing values
