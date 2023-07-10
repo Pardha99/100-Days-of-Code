@@ -1,3 +1,23 @@
-Day: 19 / 100
-  #100daysofcode
-  
+Day: 22 / 100
+#100daysofcode
+
+ProblemName: 
+ProblemLink:Determine Color of a Chessboard Square
+https://leetcode.com/problems/determine-color-of-a-chessboard-square/
+
+
+Solution:
+class Solution {
+public:
+    bool squareIsWhite(string coordinates) {
+
+      int ans = static_cast<int>(coordinates[0]) - 97;
+       ans = ans+ static_cast<int>(coordinates[1]) - 1;
+      
+      return ans%2;
+
+    }
+};
+
+TimeComplexity : O(1)
+SpaceComplexity: O(1)
