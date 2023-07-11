@@ -1,3 +1,42 @@
 Day: 14 / 100
+#100daysofcode
 
-Tried 3sum in Leetcode;
+ProblemName: 3Sum
+ProblemLink: https://leetcode.com/problems/3sum/description/
+
+
+Status: ❌-Not Accepted-❌
+
+
+
+Solution:
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        
+        vector<vector<int>> ans;
+        vector<int> indexes;
+        for(int i=0;i<nums.size()-2;i++)
+        {
+            for(int j=i+1;j<nums.size()-1;j++)
+            {
+                for(int k=j+1;k<nums.size();k++)
+                {
+                    if( i != j && j != k  && j != k)
+                    {
+                        if(nums[i]+nums[j]+nums[k] == 0)
+                        {
+                            indexes.erase(indexes.begin(),indexes.end());
+                            indexes.push_back(nums[i]);
+                            indexes.push_back(nums[j]);
+                            indexes.push_back(nums[k]);
+                            ans.push_back(indexes);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
