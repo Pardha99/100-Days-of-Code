@@ -1,3 +1,11 @@
+Day: 18 / 100
+#100daysofcode
+
+ProblemName: Sqrt(x)
+ProblemLink:https://leetcode.com/problems/sqrtx/description/
+
+Approach: Finding Nearest square number using For Loop
+
 class Solution {
 public:
     int mySqrt(int x) {
