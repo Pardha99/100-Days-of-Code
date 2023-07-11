@@ -1,2 +1,36 @@
 Day: 23 / 100
 #100daysofcode
+
+ProblemName:Maximum Number of Words Found in Sentences
+ProblemLink: https://leetcode.com/problems/maximum-number-of-words-found-in-sentences/description/
+
+
+Solution:
+class Solution {
+public:
+//Funtion to Find no.of Words in string used Chatgpt for this Function ///code
+int countWords(const std::string& str) {
+    std::istringstream iss(str);
+    int count = 0;
+    std::string word;
+
+    while (iss >> word) {
+        count++;
+    }
+
+    return count;
+}
+    int mostWordsFound(vector<string>& sentences) {
+
+        int len = 0;
+        for(int i=0;i<sentences.size();i++){
+           int s =countWords(sentences[i]);
+            len = max(len,s);
+        }
+        return len;
+    }
+};
+
+
+TimeComplexity: O(N)
+SpaceComplexity:O(1)
