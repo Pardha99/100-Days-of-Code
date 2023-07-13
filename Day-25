@@ -1,0 +1,29 @@
+Day: 25 / 100 
+#100daysofcode
+
+problemName:Power of Three
+
+Stauts: X--NotAccepted--X
+-> 19103 / 21040 testcases passed
+
+Approach: logarithms formulas
+--          ln(x^y)=y*ln(x)
+--          we need to check pow(3,y) == n
+
+
+Solution:
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        
+    
+        if( n <= 0) return false;
+//(pow(3,log(n)/log(3))) == float(n);
+cout<<log10(n) / log10(3)<<endl;
+cout<<(pow(3, log10(n) / log10(3)));
+       if( (pow(3, log10(n) / log10(3))) == n) return true;
+
+       return false;
+    }
+};
+
