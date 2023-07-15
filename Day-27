@@ -1,0 +1,35 @@
+Day: 27 / 100 
+#100daysofcode
+
+ProblemName: Move Zeroes
+ProblemLink: https://leetcode.com/problems/move-zeroes/description/
+
+Approach: Two-Pointers method
+
+Solution:
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int Z=-1;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]== 0) {Z=i;
+            break;
+            }
+        }
+        if(Z==-1){
+            return;
+        }
+        else
+        {
+            for(int i=Z+1;i<nums.size();i++){
+                if(nums[i] != 0){
+                swap(nums[i],nums[Z++]);
+            }
+        }
+    }
+    }
+};
+
+
+TimeComplexity: O(N)
+SpaceComplexity:O(1)
