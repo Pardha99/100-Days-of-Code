@@ -1,0 +1,28 @@
+Day: 28 / 100
+#100daysofcode
+
+ProblemName: Single Number
+ProblemLink:https://leetcode.com/problems/single-number/description/
+
+Approach: Bitmanipulation
+--XOR of same number is ZERO
+---A = 10101
+---B = 10101
+----A ^ B = 0
+
+Solution:
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) 
+    {
+       
+     int XOR = 0;
+     for(int i=0;i<nums.size();i++){
+         XOR ^= nums[i];
+     }
+     return XOR;
+    }
+};
+
+TimeComplexity :O(N)
+SpaceComplexity:O(1)
