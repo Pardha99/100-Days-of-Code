@@ -1,0 +1,42 @@
+Day: 31 / 100
+#100daysofcode
+
+ProblemName: Longest Subarray With Sum K
+ProblemLink:https://www.codingninjas.com/studio/problems/longest-subarray-with-sum-k_6682399?leftPanelTab=0
+
+Appraoch: TWO POINTERS
+Solved with help of @striver 
+YoutubeLink:https://www.youtube.com/watch?v=frf7qxiN2qU
+
+Solution:
+int longestSubarrayWithSumK(vector<int> a, long long k) {
+    // Write your code here
+
+    int l = 0;
+    long long len = 0;
+    long long maxl = 0;
+    long long sum = 0;
+    for(int i=0;i<a.size();i++){
+
+        if(a[i] == k){
+            len = 1;
+            maxl = max(maxl,len); 
+        }
+        sum += a[i];
+        if(sum == k){
+            len = i-l+1;
+            maxl = max(maxl,len);
+            // sum -= a[l++];
+        }else if( sum > k){
+            sum -= a[l++];
+            len = i-l+1;
+            if(sum== k){
+                maxl = max(maxl,len);
+            }
+        }
+    }
+    return maxl;
+}
+
+TimeComplexity :O(N)
+SpaceComplexity:O(1)
