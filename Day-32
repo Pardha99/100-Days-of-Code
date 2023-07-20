@@ -1,0 +1,30 @@
+Day: 32 / 100
+#100daysofcode
+
+ProblemName: Rearrange Array Elements by Sign
+ProblemLink: https://leetcode.com/problems/rearrange-array-elements-by-sign/description/
+
+Appraoch: Creating an Extra two arrays one for Positive Number and other for Negative Numbers
+
+Solution:
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+        vector<int> ans(nums.size(),0);
+    int n=1,p=0;
+        for(int i = 0;i<nums.size();i++){
+
+            if(nums[i]<0){
+                ans[n] = nums[i];
+                n=n+2;
+            }else{
+                ans[p] = nums[i];
+                p = p+2;
+            }
+        }
+        return ans;
+    }
+};
+
+TimeComplexity: O(N)
+SpaceComplexity:O(1) 
