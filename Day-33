@@ -1,0 +1,49 @@
+Day: 33 / 100
+#100daysofcode
+
+ProblemName: Missing And Repeating Numbers
+ProblemLink: https://www.codingninjas.com/studio/problems/missing-and-repeating-numbers_6828164?leftPanelTab=0
+
+Approach: Using unordered_map to cout the frequency. and Using Maths Formula N*(N+1) / 2;
+
+
+Solution:
+#include<unordered_map>
+vector<int> findMissingRepeatingNumbers(vector < int > a) {
+    // Write your code here
+
+    vector<int> ans;
+unordered_map<int, int> mpp;
+int n = a.size();
+    for(int i=0;i<n;i++){
+        auto it = mpp.find(a[i]);
+        if(it != mpp.end()){
+            it->second++;
+        }else{
+            mpp.insert({a[i],0});
+        }
+    }
+    int repeat =0;
+    int repeat_count = 0;
+    for(const auto&pair : mpp){
+        if(pair.second > 0){
+            ans.push_back(pair.first);
+            repeat = pair.first;
+            repeat_count = pair.second;
+            break;
+        }
+    }
+    int sum = (n*(n+1))/2;
+    int S = 0; 
+for(int i=0;i<n;i++){
+    if(a[i] != repeat){
+        S += a[i];
+    }
+}
+ans.push_back(sum - S -repeat);
+return ans;
+}
+SolutionLink:
+
+TimeComplexity : O(N)
+SpaceComplexity: O(N) //Created Extra MAP for counting the frequency
