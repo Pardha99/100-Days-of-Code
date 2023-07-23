@@ -1,0 +1,82 @@
+Day: 35 / 100
+#100daysofcode
+
+ProblemName: Product of Array Except Self
+ProblemLink: https://leetcode.com/problems/product-of-array-except-self/
+
+Approach: PreFix Concept
+1.Multiplying all Elements from 1->N
+--if Zero Neglate it and continue product
+2.Also Keeping Count of Zeros
+
+⭐Now numbers of Zeros do the Difference⭐
+1. ALL Zeros
+2. No Zeros
+2. Only One Zero
+3. More Than One Zero
+
+Now How to Resolve them:
+1️⃣-For All Zeros-
+If All Numbers are Zeros then product will be Zero
+2️⃣--For No Zeros--
+If there are No Zeros then divide the current Element with arrayProduct and pushback to vector
+3️⃣---For Only One Zero---
+Every Element will be Zero Except the Zero's position because we cannot multiply self so directly pushback arrayproduct
+4️⃣----For More then One Zero----
+Every element will be Zero because Even if the taken element is Zero due to other Zero present in array product will be Zero
+
+Solution:
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        
+        vector<int> ans;
+
+        int Z  = nums.size();
+        int a = 1;
+        int Zeros = 0;
+        for(int i=0;i<Z;i++)
+        {
+            if(nums[i]!=0)
+            {
+                a *= nums[i];
+            }else{
+                Zeros++;
+            }
+        }
+
+
+        if(Zeros == Z){
+            a = 0;
+        }
+
+        for(int i=0;i<Z;i++)
+        {
+
+            int V ;
+            if(Zeros != 0)
+            {
+                if(Zeros == 1){
+                if(nums[i] == 0){
+                    ans.push_back(a);
+                }else{
+                    ans.push_back(0);
+                }
+                }
+                else{
+                    ans.push_back(0);
+                }
+            }
+            else
+            {
+                    V = a/nums[i];
+                    ans.push_back(V);
+                }
+            }
+         return ans;   
+        }
+};
+
+
+TimeComplexity: O(N)
+SpaceComplexity:O(1)
