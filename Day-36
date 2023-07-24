@@ -1,0 +1,37 @@
+Day: 36 / 100
+#100daysofcode
+
+ProblemName: Container With Most Water
+ProblemLink: https://leetcode.com/problems/container-with-most-water/description/
+
+Approach: →→Two pointers←←
+
+Solution:
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        
+        int l = 0;
+        int r = height.size()-1;
+
+        int CWater =INT_MIN;
+        int water =0;
+        
+        while(l<r){
+
+            int Z = min(height[l],height[r]);
+
+            water = Z*(r-l);
+
+            CWater = max(water,CWater);
+
+            if(height[l] <= height[r]) l++;
+            else r--;   
+        }
+        return CWater;
+    }   
+};
+
+
+TimeComplexity: O(N)
+SpaceComplexity:O(1)
