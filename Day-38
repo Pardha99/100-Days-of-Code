@@ -1,0 +1,48 @@
+Day: 38 / 100
+#100daysofcode
+
+ProblemName: Find Pivot Index
+ProblemLink: https://leetcode.com/problems/find-pivot-index/
+
+Appraoch: Prefix-Suffix Sum Concept
+
+Solution:
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+
+        
+        int L = nums.size();
+        
+        long psum = 0;
+        long ssum = 0;
+        int r = nums.size()-1;
+        long Tsum = 0;
+        for(int i=0;i<L;i++){
+            Tsum += nums[i];
+        }
+      //  if(Tsum == 0 ) return 0;
+
+    cout<<Tsum<<endl;
+        for(int i = 0;i < nums.size();i++)
+        {
+
+           ssum = Tsum - psum - nums[i];
+
+        cout<<psum<<" "<<ssum<<endl;
+            if(psum == ssum) {
+                return i;
+                break;
+            }
+            // ssum = Tsum;
+            psum += nums[i];
+           
+        }
+      
+     return -1;
+    }
+};
+
+
+TimeComplexity: O(N)
+SpaceComplexity: O(1)
