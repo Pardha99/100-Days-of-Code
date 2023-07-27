@@ -1,0 +1,57 @@
+Day: 39 / 100
+#100daysofcode
+
+ProblemName: Plus One
+ProblemLink: https://leetcode.com/problems/plus-one/
+
+Solution:
+```
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        
+        vector<int> ans;
+
+        int car = 0;
+
+        int L = digits.size()-1;
+        int nin = 0;
+        for(int i=0;i<L+1;i++){
+            if(digits[i]==9) nin++;
+        }
+        if(nin == L+1){
+            ans.push_back(1);
+            for(int i =0;i<L+1;i++){
+                ans.push_back(0);
+            }
+            return ans;
+        }
+
+        if(digits[L]==9){
+
+            car++;
+            while(car){
+                digits[L]=0;
+                
+                if(digits[L-1]<9){
+                    digits[L-1] = digits[L-1]+1;
+                    car--;
+                }else{
+                    L--;
+                }
+            }
+
+
+    return digits;
+        }else{
+            digits[L] = digits[L]+1;
+            return digits;
+        }
+
+        return {-1,-1} ;
+
+    }
+};
+```
+TimeComplexity: O(N)
+SpaceComplexity: O(1)
