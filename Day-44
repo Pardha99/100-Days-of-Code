@@ -1,0 +1,21 @@
+Day: 44 / 100
+#100daysofcode
+
+ProblemName:Number of occurrence
+ProblemLink:https://www.codingninjas.com/studio/problems/occurrence-of-x-in-a-sorted-array_630456?leftPanelTab=0
+
+Appraoch: 💪STL💪 inbulit Funtions  Lowerbound and upperbound
+
+solution: #include<bits/stdc++.h>
+int count(vector<int>& arr, int n, int x) {
+	// Write Your Code Here
+	auto  l  = lower_bound(arr.begin(),arr.end(),x);
+	auto r = upper_bound(arr.begin(),arr.end(),x);
+	if(l!= arr.end() && r!= arr.end()){
+		return r-l;
+	}
+	return 0;
+}
+
+TimeComplexity: O(Log(N))
+SpaceComplexity: O(1)
