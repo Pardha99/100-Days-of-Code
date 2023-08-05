@@ -1,0 +1,12 @@
+Day: 48 / 100
+#100daysofcode
+
+ProblemName: Find Minimum in Rotated Sorted Array
+ProblemLink: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/
+
+Approach: Binary-Search
+
+TimeComplexity: O(log(N))
+SpaceComplexity: O(1)
+
+Solution:
