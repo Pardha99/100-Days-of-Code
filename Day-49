@@ -1,0 +1,29 @@
+Day: 49 / 100
+
+ProblemName:  Happy Number
+ProblemLink: https://leetcode.com/problems/happy-number/description/
+
+Approach : Recursion
+
+Solution:
+class Solution {
+public:
+    bool isHappy(int n) {
+
+        if(n==1  || n==7) return 1;
+        if((n>1 && n<5 )|| n==8 || n==9) return 0;
+       int z = 0;
+       while(n){
+
+           int  i = n%10;
+           z += pow(i,2);
+            n = n/10;
+       } 
+       cout<<z<<" ";
+       if(z == 1) return 1;
+      return isHappy(z);    
+    }
+};
+
+TimeComplexity: O(digits)
+SpaceComplexity: O(1)
